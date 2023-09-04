@@ -26,6 +26,7 @@ jobs:
           ls
           echo "${{ secrets.AWS_KEY_PAIR }}" > kalyan.pem
           sudo chmod 400 kalyan.pem
+          ls
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.sha }}
