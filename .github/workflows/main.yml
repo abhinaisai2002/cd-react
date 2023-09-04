@@ -12,6 +12,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
       - name: get_aws_keys
         run: |
+          mkdir ~/.aws
           cd ~/.aws
           echo "[default]" >> credentials
           echo ${{ secrets.AWS_ACCESS_KEY }} >> credentials 
