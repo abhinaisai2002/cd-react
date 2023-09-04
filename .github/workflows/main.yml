@@ -1,0 +1,17 @@
+name : Continous deployment
+
+on:
+  push:
+    branches:
+      - abhinai
+jobs:
+  get_keys:
+    runs-on: ubuntu-latest
+    name: deployment into aws
+    steps:
+      - uses: hashicorp/setup-terraform@v2
+      - name: get_aws_keys
+        run: |
+          cd ~/.aws
+          echo "[default]" >> credentials
+          echo ${{ secrets.AWS_ACCESS_KEY }} >> credentials 
