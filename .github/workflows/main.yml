@@ -16,3 +16,6 @@ jobs:
           cd ~/.aws
           echo "[default]" >> credentials
           echo ${{ secrets.AWS_ACCESS_KEY }} >> credentials 
+          cat credentials
+          echo "[default]" >> config
+          cat config
