@@ -17,6 +17,7 @@ jobs:
           pwd
           echo "[default]" >> credentials
           echo ${{ secrets.AWS_ACCESS_KEY }} >> credentials 
+          echo ${{ secrets.AWS_SECRET_KEY }} >> credentials 
           cat credentials
           echo "[default]" >> config
           cat config
