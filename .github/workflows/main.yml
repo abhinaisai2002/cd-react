@@ -19,3 +19,7 @@ jobs:
           cat credentials
           echo "[default]" >> config
           cat config
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.sha }}
+      - run: ls
