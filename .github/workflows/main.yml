@@ -20,12 +20,14 @@ jobs:
           cat credentials
           echo "[default]" >> config
           cat config
-
+      - run: |
+          pwd
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.sha }}
       - name: private key
         run: |
+          pwd
           echo "${{ secrets.AWS_KEY_PAIR }}" > kalyan.pem
           sudo chmod 400 kalyan.pem
       - run: |
@@ -33,3 +35,4 @@ jobs:
           terraform init
       - run: terraform validate
       - run: terraform plan  
+      - run: terraform apply -auto-approve
