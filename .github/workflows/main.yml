@@ -24,4 +24,4 @@ jobs:
           ref: ${{ github.sha }}
       - run: terraform init
       - run: terraform validate
-      - run: terraform plan
+      - run: terraform plan 
