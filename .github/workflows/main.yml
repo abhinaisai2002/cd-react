@@ -22,6 +22,8 @@ jobs:
           cat config
       - name: private key
         run: |
+          pwd 
+          ls
           echo "${{ secrets.AWS_KEY_PAIR }}" > kalyan.pem
           sudo chmod 400 kalyan.pem
       - uses: actions/checkout@v3
