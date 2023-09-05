@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
 
   associate_public_ip_address = true
 
-  user_data = file("${path.module}/userdata.sh")
+  user_data = file("./userdata.sh")
 
   key_name = "kalyan"
   

@@ -10,13 +10,15 @@ resource "null_resource" "remote_execution" {
     type        = "ssh"
     user        = "ubuntu"
     host        = aws_instance.web.public_ip
-    private_key = file("${path.module}/kalyan.pem")
+    private_key = file("./kalyan.pem")
   }
 
   # Provisioner block to define remote execution steps.
   provisioner "remote-exec" {
     inline = [
-      "docker stop abhinai",
+      "/usr/bin/docker --version",
+      "export PATH=$PATH:/usr/bin",
+      "docker ps | grep abhinai && docker stop abhinai",
       "docker pull abhinai02/ci-cd:latest",
       "docker run --rm --name abhinai -d -p 80:80 abhinai02/ci-cd:latest"
     ]

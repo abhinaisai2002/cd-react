@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo apt update
-sudo apt install docker -y
-sudo apt install docker.io -y
+sudo apt update -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh 
 sudo usermod -aG docker ubuntu
 systemctl daemon-reload
 sudo service docker restart

@@ -1,1 +1,3 @@
 kalyan.pem
+.terraform/
+.terraform.lock.hcl
